@@ -116,50 +116,6 @@ namespace BigAdd
             }
 
             return Result;
-
-            #region Old Code
-            /*
-             * // Output string
-            string Result = "";
-
-            // Indexes only to the limit of the shorter string so that 
-            // no out-of-bounds errors occur
-            int ShortestLength = Math.Min(n1.Length, n2.Length);
-            
-            // Clone the shorter of the two strings so that it can be directly compared
-            string ShorterString = (string)((n1.Length >= n2.Length) ? n1.Clone() : n2.Clone());
-
-            // Math variables
-            int TopDigit = 0, BottomDigit = 0; // Upper and lower digits in addition
-            int TempResult = 0; // Temporary Variable for manipulation before finalizing in Result
-            int AddNext = 0; // The amount to carry to the next column
-
-            int Overlap = ShorterString.Length - ((ShorterString == n1) ? n2.Length : n1.Length); // Will need this in a moment
-            for (int i = ShortestLength - 1; i >= 0; i--)
-            {
-                TopDigit = byte.Parse(n1[i].ToString());
-                BottomDigit = byte.Parse(n2[i].ToString());
-
-                TempResult = TopDigit + BottomDigit + AddNext;
-                if (TempResult > 10)
-                {
-                    // Extract the number to add to the next column
-                    AddNext = (int)Math.Floor(TempResult / 10f);
-                    // Will make something like 4.4, floored is 4, converted to int
-                }
-                else AddNext = 0;
-                // Remove any extra leftovers
-
-                // Equal to Result = Result + TempResult.ToString();
-                // non-mutable strings :B
-                Result += TempResult.ToString();
-            }
-
-            Result += ReverseString(ShorterString.Substring(Overlap));
-            Result = ReverseString(Result);
-
-            return Result;*/
-#endregion Old Code
         }
 
         static void PadStrings(ref string String1, ref string String2)
